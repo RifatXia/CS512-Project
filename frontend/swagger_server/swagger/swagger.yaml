@@ -1,0 +1,31 @@
+openapi: 3.0.4
+info:
+  title: Table Extraction Service
+  version: 1.0.0
+servers:
+- url: /
+tags:
+- name: table_extract
+  description: Table Extraction
+paths:
+  /table_extract:
+    post:
+      tags:
+      - table_extract
+      summary: Upload a table image and get recognized result.
+      description: Upload a table image.
+      operationId: table_extract_post
+      requestBody:
+        content:
+          image/png:
+            schema:
+              type: string
+              format: binary
+      responses:
+        "200":
+          description: successfully updated
+        "400":
+          description: Invalid input
+      x-openapi-router-controller: swagger_server.controllers.table_extract_controller
+components: {}
+
