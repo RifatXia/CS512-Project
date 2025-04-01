@@ -2,18 +2,19 @@ import connexion
 import six
 
 from swagger_server import util
+from flask import send_file, request as flask_request
 
 
-def table_extract_post(body=None):  # noqa: E501
-    """Upload a table image and get recognized result.
+def table_extract_post(file=None):
+    file_name = file.filename
+    # file_data = file.read()
+    file.save(f"temp_{file_name}")
+    query_params = connexion.request.query_params
 
-    Upload a table image. # noqa: E501
+    for query, value in query_params.items():
+        print(query, value)
 
-    :param body: 
-    :type body: dict | bytes
-
-    :rtype: None
-    """
-    if connexion.request.is_json:
-        body = Object.from_dict(connexion.request.get_json())  # noqa: E501
-    return 'do some magic!'
+    output_file_path = "lab01_dataset_2.csv"
+    return send_file(output_file_path,
+                     as_attachment=True,
+                     download_name='generated_file.csv')
