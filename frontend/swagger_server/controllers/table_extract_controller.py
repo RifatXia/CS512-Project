@@ -58,4 +58,4 @@ def table_extract_post(file):
 
     return send_file(output_file_path,
                      as_attachment=True,
-                     download_name='generated_file.csv')
+                     download_name=output_file_path.name)
