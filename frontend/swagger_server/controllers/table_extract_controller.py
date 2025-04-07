@@ -2,11 +2,10 @@ import connexion
 from pathlib import Path
 import six
 import sys
-sys.path.append("/home/cc/jiongjiong/proj/git/table-transformer/src")
-
 from flask import send_file, request as flask_request
 
 from swagger_server import util
+sys.path.append("/home/cc/jiongjiong/proj/git/table-transformer/src")
 from model_service import get_args, TableExtractModel
 
 
@@ -51,6 +50,16 @@ def table_extract_post(file):
     model.process(str(image_file_path))
 
     print(args.out_dir)
+
+
+def table_extract_post(file=None):
+    file_name = file.filename
+    # file_data = file.read()
+    file.save(f"temp_{file_name}")
+    query_params = connexion.request.query_params
+
+    for query, value in query_params.items():
+        print(query, value)
 
     output_file_path = "lab01_dataset_2.csv"
     return send_file(output_file_path,
