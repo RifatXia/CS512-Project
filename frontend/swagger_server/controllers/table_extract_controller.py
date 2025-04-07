@@ -22,7 +22,8 @@ def create_model():
         '--detection_model_path', '/home/cc/jiongjiong/models/pubtables1m_detection_detr_r18.pth',
         '--html',
         '--csv',
-        '--visualize'
+        '--visualize',
+        '--tesseract_cmd', '/home/cc/jiongjiong/tesseract_ocr/bin/tesseract'
     ]
 
     args = get_args(input_args)
