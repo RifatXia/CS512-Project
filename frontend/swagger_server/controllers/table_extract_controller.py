@@ -52,11 +52,10 @@ def table_extract_post(file):
         print(query, value)
 
     print(f"processing: {image_file_path}")
-    model.process(str(image_file_path))
+    output_file_path = model.process(str(image_file_path))
 
-    print(f"out_dir: {args.out_dir}")
+    print(f"output_file_path: {output_file_path}")
 
-    output_file_path = "lab01_dataset_2.csv"
     return send_file(output_file_path,
                      as_attachment=True,
                      download_name='generated_file.csv')
