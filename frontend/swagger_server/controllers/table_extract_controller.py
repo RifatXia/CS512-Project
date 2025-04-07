@@ -48,19 +48,10 @@ def table_extract_post(file):
     for query, value in query_params.items():
         print(query, value)
 
+    print(f"processing: {image_file_path}")
     model.process(str(image_file_path))
 
-    print(args.out_dir)
-
-
-def table_extract_post(file=None):
-    file_name = file.filename
-    # file_data = file.read()
-    file.save(f"temp_{file_name}")
-    query_params = connexion.request.query_params
-
-    for query, value in query_params.items():
-        print(query, value)
+    print(f"out_dir: {args.out_dir}")
 
     output_file_path = "lab01_dataset_2.csv"
     return send_file(output_file_path,
