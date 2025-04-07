@@ -16,17 +16,20 @@ paths:
       description: Upload a table image.
       operationId: table_extract_post
       parameters:
-        - name: output_file_format
+        - name: mode
           in: query
-          description: Ouput file format.
+          description: |-
+            - Detect: Table Detect given one page image.
+            - Recognize: Table Recognize given one table image.
+            - Extract: Table Detect + Recognize given one page image.
           required: true
           schema:
             type: string
-            default: CSV
+            default: Recognize
             enum:
-              - CSV
-              - Image
-              - Html
+              - Detect
+              - Recognize
+              - Extract
       requestBody:
         content:
           multipart/form-data:

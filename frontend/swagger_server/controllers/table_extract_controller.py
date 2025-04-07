@@ -51,6 +51,9 @@ def table_extract_post(file):
     for query, value in query_params.items():
         print(query, value)
 
+    mode = query_params["mode"]
+    args.mode = mode
+
     print(f"processing: {image_file_path}")
     output_file_path = model.process(str(image_file_path))
 
