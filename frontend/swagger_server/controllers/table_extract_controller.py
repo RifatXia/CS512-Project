@@ -52,7 +52,7 @@ def table_extract_post(file):
         print(query, value)
 
     mode = query_params["mode"]
-    args.mode = mode
+    args.mode = mode.lower()
 
     print(f"processing: {image_file_path}")
     output_file_path = model.process(str(image_file_path))
