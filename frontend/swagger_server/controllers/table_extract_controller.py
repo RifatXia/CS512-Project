@@ -27,6 +27,7 @@ def create_model():
 
     args = get_args(input_args)
     model = TableExtractModel(args)
+
     return model
 
 
