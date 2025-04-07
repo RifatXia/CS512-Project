@@ -44,6 +44,8 @@ def table_extract_post(file):
     image_file_path.parent.mkdir(parents=True, exist_ok=True)
     file.save(str(image_file_path))
 
+    Path(args.out_dir).mkdir(parents=True, exist_ok=True)
+
     query_params = connexion.request.query_params
 
     for query, value in query_params.items():
