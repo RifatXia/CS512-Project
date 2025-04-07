@@ -22,6 +22,8 @@ def create_model():
         '--detection_model_path', '/home/cc/jiongjiong/models/pubtables1m_detection_detr_r18.pth',
         '--html',
         '--csv',
+        '--objects',
+        '--crops',
         '--visualize',
         '--tesseract_cmd', '/home/cc/jiongjiong/tesseract_ocr/bin/tesseract'
     ]
